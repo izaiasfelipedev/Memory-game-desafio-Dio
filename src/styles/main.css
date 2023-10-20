@@ -1,54 +1,55 @@
-body{
-  min-height: 100vh;
+body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fc1e8a;
+  min-height: 100vh;
+  background: #fc1e8a;
   user-select: none;
 }
 
-.container{
+.container {
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
   justify-content: center;
   align-items: center;
   gap: 30px;
   background: linear-gradient(
-  325deg,
-  #03001e 0%,
-  #7303c0 30%,
-  #ec38bc 70%,
-  #fdeff9 100%
+    325deg,
+    #03001e 0%,
+    #7303c0 30%,
+    #ec38bc 70%,
+    #fdeff9 100%
   );
   padding: 40px 60px;
 }
-h2{
-  text-transform: uppercase;
+
+h2 {
   font-size: 3em;
-  letter-spacing: 0.1em;
   color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
-.reset{
-  width: 100%;
+.reset {
   padding: 15px 20px;
+  width: 100%;
+  color: #000;
+  background-color: #fff;
   border: none;
-  text-transform: uppercase;
   font-size: 1.5em;
   letter-spacing: 0.1em;
-  background-color: #fff;
-  color: #000;
+  text-transform: uppercase;
   cursor: pointer;
   font-weight: 600;
 }
 
 .reset:focus {
-  background-color:#262809;
-  color:  #ec38bc;
+  color: #ec38bc;
+  background-color: #262809;
 }
 
-.game{
+.game {
   width: 430px;
   height: 430px;
   display: flex;
@@ -58,33 +59,36 @@ h2{
   perspective: 500px;
 }
 
-.item{
+.item {
+  position: relative;
   width: 100px;
   height: 100px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  position: relative;
-  font-size: 3em;
+  justify-content: center;
   background-color: #fff;
+
+  font-size: 3em;
   transform: rotateY(180deg);
   transition: 0.25s;
 }
 
-.item::after{
+.item::after {
   content: "";
-  inset: 0;
   position: absolute;
-  background-color: #404040;
-  backface-visibility: hidden;
-  transform: rotateY(0deg);
+  inset: 0;
+  background: #404040;
+  /* opacity: 0.85; */
   transition: 0.25s;
+  transform: rotateY(0deg);
+  backface-visibility: hidden;
 }
 
-.item.boxOpen{
+.item.boxOpen {
   transform: rotateY(0deg);
 }
 
-.boxOpen::afeter,boxMatch:afeter{
-  transform: rotateY(180deg);
+.boxOpen::after,
+.boxMatch::after {
+  transform: rotateY(180deg); 
 }
